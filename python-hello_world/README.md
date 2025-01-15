@@ -50,7 +50,7 @@ You can find the source code [here](https://github.com/hs-hq/0x00.py/blob/main/3
 * Your code must be 3 lines long
 * You have to use f-strings tips
 
-3-print_number.py
+File: 3-print_number.py
 
 #### 2. Print float
 
@@ -77,6 +77,8 @@ Complete this source code in order to print 3 times a string stored in the varia
     * followed by a new line
 * You are not allowed to use any loops or conditional statement
 * Your program should be maximum 5 lines long
+
+File: 5-print_string.py
 
 #### 4. Play with strings
 
