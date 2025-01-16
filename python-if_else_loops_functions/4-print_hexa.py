@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-print("".join(f"{i} = 0x{i:x}\n" for i in range(99)), end="")
-# still using f-strings formatting
+print("".join("{i} = 0x{i:x}\n".format(i=i) for i in range(99)), end="")
+# f-strings formatting :
+# prnt("".join(f"{i} = 0x{i:x}\n" fr i in range(99)), end="")
 # format specifiers : b for binaries, x for hex, #x to add 0x prefix...
