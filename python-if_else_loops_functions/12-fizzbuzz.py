@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def fizzbuzz():
     for nb in range(1, 101):
         if not nb % 3 and not nb % 5:
