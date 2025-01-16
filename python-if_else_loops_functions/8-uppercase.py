@@ -2,8 +2,8 @@
 def uppercase(str):
     upper_str = ""
     for char in str:
-        if ord('a') <= ord(char) <= ord('z'):  # Checks if the character is lowercase
-        # Python allows bounding ("surounding") a number in such inequation
+        if ord('a') <= ord(char) <= ord('z'):  # Checks if the chars lowercase
+            # Python allows bounding ("surounding") a nb with inequations
             upper_str += chr(ord(char) - 32)  # Converts to uppercase, prints
         else:
             upper_str += char  # Print non-lowercase characters as is
