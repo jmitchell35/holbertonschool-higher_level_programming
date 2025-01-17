@@ -92,25 +92,25 @@ This program will assign a random signed number to the variable `number` each ti
         *   if the number is less than 0: `is negative`
     *   followed by a new line
 
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     -4 is negative
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     0 is zero
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     -3 is negative
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     -10 is negative
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     10 is positive
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     -5 is negative
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     6 is positive
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     7 is positive
-    guillaume@ubuntu:~/$ ./0-positive_or_negative.py 
+    guillaume@ubuntu:\~/$ ./0-positive_or_negative.py 
     5 is positive
-    guillaume@ubuntu:~/$ 
+    guillaume@ubuntu:\~/$ 
     
 
 **Repo:**
@@ -139,29 +139,29 @@ This program will assign a random signed number to the variable `number` each ti
         *   if the last digit is less than 6 and not 0: the string `and is less than 6 and not 0`
     *   followed by a new line
 
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of 4205 is 5 and is less than 6 and not 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of -626 is -6 and is less than 6 and not 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of 1144 is 4 and is less than 6 and not 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of -9200 is 0 and is 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of 5247 is 7 and is greater than 5
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of -9318 is -8 and is less than 6 and not 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of 3369 is 9 and is greater than 5
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of -5224 is -4 and is less than 6 and not 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of -4485 is -5 and is less than 6 and not 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of 3850 is 0 and is 0
-    guillaume@ubuntu:~/$ ./1-last_digit.py
+    guillaume@ubuntu:\~/$ ./1-last_digit.py
     Last digit of 5169 is 9 and is greater than 5
-    guillaume@ubuntu:~/$ 
+    guillaume@ubuntu:\~/$ 
     
 
 **Repo:**
@@ -183,8 +183,8 @@ Write a program that prints the ASCII alphabet, in lowercase, not followed by a 
 *   You are not allowed to store characters in a variable
 *   You are not allowed to import any module
 
-    guillaume@ubuntu:~/$ ./2-print_alphabet.py
-    abcdefghijklmnopqrstuvwxyzguillaume@ubuntu:~/$ 
+    guillaume@ubuntu:\~/$ ./2-print_alphabet.py
+    abcdefghijklmnopqrstuvwxyzguillaume@ubuntu:\~/$ 
     
 
 **Repo:**
@@ -206,9 +206,9 @@ Write a program that prints the ASCII alphabet, in lowercase, reversed (from `z`
 *   You are not allowed to store characters in a variable
 *   You are not allowed to import any module
 
-    guillaume@ubuntu:~/$ ./3-print_alphabt_reversed.py
+    guillaume@ubuntu:\~/$ ./3-print_alphabt_reversed.py
     zyxwvutsrqponmlkjihgfedcba
-    guillaume@ubuntu:~/$ 
+    guillaume@ubuntu:\~/$ 
     
 **Repo:**
 
@@ -227,7 +227,7 @@ Write a program that prints all the numbers from `0` to `98` in decimal and in h
 *   You can use `hex()` to print the hexadecimal representation of a number
 *   You are not allowed to import any module
 
-    guillaume@ubuntu:~/$ ./4-print_hexadecimal.py
+    guillaume@ubuntu:\~/$ ./4-print_hexadecimal.py
     0 0x0
     1 0x1
     2 0x2
@@ -327,7 +327,7 @@ Write a program that prints all the numbers from `0` to `98` in decimal and in h
     96 0x60
     97 0x61
     98 0x62
-    guillaume@ubuntu:~/$ 
+    guillaume@ubuntu:\~/$ 
 
 **Repo:**
 
