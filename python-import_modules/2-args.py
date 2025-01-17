@@ -4,9 +4,10 @@ if __name__ == "__main__":
 
     argc = len(argv) - 1
     print(
-            "{} {}".format(
+            "{} {}{}".format(
                 argc,
-                "argument" if argc == 1 else "arguments"
+                "argument" if argc == 1 else "arguments",
+                "." if argc == 0 else ":"
                 )
             )
 for i in range (0, argc):
