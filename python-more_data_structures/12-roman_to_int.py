@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if not roman_string or isinstance(roman_string, str) == False:
+    if not roman_string or isinstance(roman_string, str) is False:
         return 0
     decimal = 0
     for i in range(len(roman_string)):
         if roman_string[i] == 'I':
-            if (i + 1 in range(len(roman_string)) and 
-                roman_string[i + 1] in 'VX'):
+            if (i + 1 in range(len(roman_string)) and
+                    roman_string[i + 1] in 'VX'):
                 decimal -= 1
             else:
                 decimal += 1
@@ -16,20 +16,20 @@ def roman_to_int(roman_string):
 
         if roman_string[i] == 'X':
             if (i + 1 in range(len(roman_string)) and
-                roman_string[i + 1] in 'LC'):
+                    roman_string[i + 1] in 'LC'):
                 decimal -= 10
             else:
                 decimal += 10
 
         if roman_string[i] == 'L':
             decimal += 50
-        
+
         if roman_string[i] == 'D':
             decimal += 500
 
         if roman_string[i] == 'C':
             if (i + 1 in range(len(roman_string)) and
-                roman_string[i + 1] in 'DM'):
+                    roman_string[i + 1] in 'DM'):
                 decimal -= 100
             else:
                 decimal += 100
