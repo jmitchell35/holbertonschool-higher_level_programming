@@ -6,14 +6,18 @@ Module provides say_my_name function
 
 def say_my_name(first_name, last_name=""):
     """
-    Prints a formatted name string using the provided first and optional last name.
+    Prints a formatted name string using the provided first and optional last
+    name.
 
     Args:
-        first_name (str): The first name to display. Must be a non-empty string.
-        last_name (str, optional): The last name to display. Defaults to empty string.
+        first_name (str): The first name to display. Must be a non-empty
+        string.
+        last_name (str, optional): The last name to display. Defaults to empty
+        string.
 
     Raises:
-        TypeError: If first_name or last_name is not a string, or if first_name is empty.
+        TypeError: If first_name or last_name is not a string, or if
+        first_name is empty.
 
     Example:
         >>> say_my_name("John", "Doe")
