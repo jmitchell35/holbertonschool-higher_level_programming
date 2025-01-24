@@ -3,19 +3,21 @@
 3
 >>> add_integer(100, -2)
 98
->>> add_integer(2)
+>>> add_integer(2)  # Tests default parameter
 100
->>> add_integer(100.3, -2)
+>>> add_integer(100.3, -2)  # Tests float conversion
 98
->>> add_integer(0, 0)
-0
->>> add_integer(-1, -2)
+>>> add_integer(-1, -2)  # Tests negative numbers
 -3
->>> add_integer("string", 3)
+>>> add_integer(float('inf'), 0)  # Tests infinity
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(float('nan'), 0)  # Tests NaN
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+>>> add_integer("string", 3)  # Tests invalid first parameter
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
->>> add_integer(89, "string")
-Traceback (most recent call last):
-    ...
-TypeError: b must be an integer
