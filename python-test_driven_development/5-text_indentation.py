@@ -31,7 +31,7 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    separators = ['.', '. ', '?' '? ', ':', ': ']
+    separators = ['. ', '.', '? ', '?', ': ', ':']
     replacement = ['.\n\n', '?\n\n', ':\n\n']
     for i in range(len(separators)):
         text = text.replace(separators[i], replacement[int(i/2)])
