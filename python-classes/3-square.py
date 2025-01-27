@@ -4,7 +4,7 @@ Module provides Square class
 """
 
 
-class Square():
+class Square:
     """
     Simple Square class with initialization and area calculation methods
     """

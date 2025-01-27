@@ -4,7 +4,7 @@ Module provides Sqaure class
 """
 
 
-class Square():
+class Square:
     """
     Square class is a simple empty class
     """

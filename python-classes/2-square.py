@@ -4,7 +4,7 @@ Module provides the Square class
 """
 
 
-class Square():
+class Square:
     """
     Simple Square class with initialization method including value verif
     """

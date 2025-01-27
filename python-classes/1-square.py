@@ -4,7 +4,7 @@ Module provides the Square class
 """
 
 
-class Square():
+class Square:
     """
     Simple class with __init__ method
     """
