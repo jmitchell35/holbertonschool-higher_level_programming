@@ -26,6 +26,15 @@ class Square():
 
     @size.setter
     def size(self, value):
+        """
+        Set square size with validation.
+
+        Args:
+            value (int): Square side length.
+
+        Raises:
+            TypeError: If value is not int or negative.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
