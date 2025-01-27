@@ -5,6 +5,10 @@ Module providing simple Square class
 
 
 class Square:
+    """
+    Square class, now featuring my_print method in addition to area,
+    init method, size property and setter.
+    """
     def __init__(self, size=0):
         """
         Initialize a Square instance.
