@@ -18,8 +18,8 @@ class Square:
             size (int, optional): Length of square's side. Defaults to 0.
             position (tuple, optional): defines offset from left and top
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -67,7 +67,7 @@ class Square:
             value(tuple): nb of ' ' (left margin) and '\n' (upper margin)
         """
         if not isinstance(value, tuple) or len(value) != 2 or \
-                value[0] < 0 or value[1] < 0:
+                not all(isinstance(val, int) and val >= 0 for val in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -100,10 +100,9 @@ class Square:
             ###
             ###
         """
-        print("\n" * self.__position[1], end="")
         if self.__size == 0:
             print()
         else:
+            print("\n" * self.__position[1], end="")
             for _ in range(self.__size):
-                print(" " * self.__position[0], end="")
-                print("#" * self.__size)
+                print(" " * self.__position[0] + "#" * self.__size)
