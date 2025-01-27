@@ -46,7 +46,7 @@ class Square():
         """
         return self.__size ** 2
 
-    def my_print():
+    def my_print(self):
         """
         Print the square using # characters.
 
