@@ -5,6 +5,11 @@ Module providing simple Square class
 
 
 class Square:
+    """
+    Full Square class now completed.
+    Methods : init, area, my print
+    Properties and setters : size, position
+    """
     def __init__(self, size=0, position=(0, 0)):
         """
         Initialize a Square instance.
