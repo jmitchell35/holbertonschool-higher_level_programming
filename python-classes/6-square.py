@@ -13,8 +13,8 @@ class Square():
             size (int, optional): Length of square's side. Defaults to 0.
             position (tuple, optional): defines offset from left and top
         """
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
