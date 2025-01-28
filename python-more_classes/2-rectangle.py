@@ -97,7 +97,8 @@ class Rectangle:
         Calculate the perimeter of the rectangle.
 
         Returns:
-            int: Perimeter as 2 * (width + height)
+            int: If width and height are non-zero: 2 * (width + height)
+                    If either width or height is 0: returns 0
         """
         return 2 * (self.width + self.height) if self.width != 0 and \
-                self.height != 0 else 0
+            self.height != 0 else 0
