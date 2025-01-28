@@ -29,11 +29,11 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Return string representation matching format
-        '<module.Rectangle object at memory_address>'.
+        Return eval()-able string representation of Rectangle instance.
 
         Returns:
-            str: Object reference format with memory location
+            str: Formatted string showing Rectangle class with width and
+            height which can be eval() to create a Rectangle object
         """
         return f"Rectangle({self.width}, {self.height})"
 
