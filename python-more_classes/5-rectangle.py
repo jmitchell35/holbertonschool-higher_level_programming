@@ -50,7 +50,8 @@ class Rectangle:
 
     def __del__(self):
         """
-        Destructor method that prints a message when rectangle instance is deleted.
+        Destructor method that prints a message when rectangle instance is
+        deleted.
 
         Prints:
             str: "Bye rectangle..."
