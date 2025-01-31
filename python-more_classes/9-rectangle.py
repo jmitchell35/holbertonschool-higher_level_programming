@@ -161,11 +161,14 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """
-        Creates a Rectangle instance with equal width and height, effectively making a square.
-        This is a convenience class method that serves as an alternative constructor.
+        Creates a Rectangle instance with equal width and height, effectively
+        making a square.
+        This is a convenience class method that serves as an alternative
+        constructor.
 
         Args:
-            size (int, float): The length of each side of the square. Defaults to 0.
+            size (int, float): The length of each side of the square. Defaults
+            to 0.
 
         Returns:
             Rectangle: A new Rectangle instance where width == height == size
@@ -177,9 +180,9 @@ class Rectangle:
             >>> print(square.area())  # 25
 
         Note:
-            This method uses the class itself (cls) to instantiate a new object,
-            making it inheritance-friendly as it will return an instance of any subclass
-            that calls this method.
+            This method uses the class itself (cls) to instantiate a new
+            object, making it inheritance-friendly as it will return an
+            instance of any subclass that calls this method.
         """
         return Rectangle(size, size)
 
