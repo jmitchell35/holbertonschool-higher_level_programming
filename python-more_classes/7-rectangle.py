@@ -53,13 +53,13 @@ class Rectangle:
         Returns:
             str: Rectangle pattern or empty string
         """
-        return '\n'.join(str(self.print_symbol) * self.width \
-                for _ in range(self.height))\
-                if self.width != 0 and self.height != 0 else ""
+        return '\n'.join(str(self.print_symbol) * self.width
+                         for _ in range(self.height))\
+            if self.width != 0 and self.height != 0 else ""
 
     def __del__(self):
         """
-        Destructor method that prints a message when rectangle instance is 
+        Destructor method that prints a message when rectangle instance is
         deleted.
 
         Prints:
