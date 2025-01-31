@@ -184,7 +184,7 @@ class Rectangle:
             object, making it inheritance-friendly as it will return an
             instance of any subclass that calls this method.
         """
-        return Rectangle(size, size)
+        return cls(size, size)
 
     def area(self):
         """
