@@ -32,7 +32,8 @@ class Rectangle(BaseGeometry):
         Returns a string representation of the Rectangle instance.
 
         Returns:
-            str: The rectangle description in the format [Rectangle] width/height
+            str: The rectangle description in the format
+            [Rectangle] width/height
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
 
