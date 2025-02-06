@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 class VerboseList(list):
     def append(self, value):
@@ -13,8 +13,6 @@ class VerboseList(list):
         print(f"Removed [{value}] from the list.")
         super().remove(value)
 
-    def pop(self, index=None):
-        if index is None:
-            index = len(self) - 1
+    def pop(self, index= -1):
         print(f"Popped [{self[index]}] from the list.")
-        super().pop(index)
+        return super().pop(index)
