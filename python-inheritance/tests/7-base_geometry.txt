@@ -1,17 +1,18 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
->>> print(bg)
-<7-base_geometry.BaseGeometry object at 0x7f8acb8faa80>
+# Tests from task 5
 >>> print(dir(bg))
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'area', 'integer_validator']
 >>> print(dir(BaseGeometry))
 ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'area', 'integer_validator']
+# Tests from task 6
 >>> try:
 ...     print(bg.area())
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 ...
 [Exception] area() is not implemented
+# Tests from task 7
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
 >>> try:
@@ -32,3 +33,67 @@
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 ...
 [ValueError] distance must be greater than 0
+# Only one argument
+>>> bg.integer_validator("str")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+# No argument
+>>> bg.integer_validator()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+# Passing float instead of integer
+>>> bg.integer_validator("str", 2.5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing float nan
+>>> bg.integer_validator("str", float('nan'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing float inf
+>>> bg.integer_validator("str", float('inf'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing float -inf
+>>> bg.integer_validator("str", float('-inf'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing tuple
+>>> bg.integer_validator("str", (1, 2))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing set 
+>>> bg.integer_validator("str", {1, 2})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing dict 
+>>> bg.integer_validator("str", {"1": 2})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing list
+>>> bg.integer_validator("str", [1, 2])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
+# Passing bool
+>>> bg.integer_validator("str", True)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in integer_validator
+TypeError: str must be an integer
