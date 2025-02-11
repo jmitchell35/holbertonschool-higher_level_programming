@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 File Reader Module
 
@@ -13,6 +12,7 @@ Usage:
    from file_reader import read_file
    read_file("example.txt")
 """
+
 
 def read_file(filename=""):
     """
