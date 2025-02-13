@@ -25,7 +25,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
+    def to_json(self):
         """Convert Student instance to dictionary representation.
 
             Args:
@@ -36,11 +36,4 @@ class Student:
                 dict: Dictionary containing selected instance attributes,
                 sorted by key length. Only existing attributes are included.
         """
-        if isinstance(attrs, list) and all((
-                isinstance(item, str) for item in attrs)):
-            dict_to_return = {i: self.__dict__.get(i)
-                              for i in attrs if self.__dict__.get(i)}
-        else:
-            dict_to_return = self.__dict__
-
-        return dict(sorted(dict_to_return.items(), key=lambda x: len(x[0])))
+        return self.__dict__
