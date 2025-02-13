@@ -28,12 +28,7 @@ class Student:
     def to_json(self):
         """Convert Student instance to dictionary representation.
 
-            Args:
-                attrs (list, optional): List of strings representing attribute
-                names to retrieve. If None, all attributes are retrieved.
-
             Returns:
-                dict: Dictionary containing selected instance attributes,
-                sorted by key length. Only existing attributes are included.
+                dict: Dictionary containing existing attributesd.
         """
         return self.__dict__
