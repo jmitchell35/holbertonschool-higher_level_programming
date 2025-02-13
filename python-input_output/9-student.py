@@ -4,7 +4,6 @@
 This module defines a Student class with basic attributes and a method to
 convert instance to JSON-compatible dictionary format.
 """
-class_to_json = __import__('8-class_to_json').class_to_json
 
 
 class Student:
@@ -26,10 +25,23 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """Convert Student instance to dictionary representation.
 
-        Returns:
-            dict: Dictionary containing all instance attributes.
+            Args:
+                attrs (list, optional): List of strings representing attribute
+                names to retrieve. If None, all attributes are retrieved.
+
+            Returns:
+                dict: Dictionary containing selected instance attributes,
+                sorted by key length. Only existing attributes are included.
         """
-        return class_to_json(self)
+        if isinstance(attrs, list) and all((
+                isinstance(item, str) for item in attrs)):
+            dict_to_return = {i: self.__dict__.get(i)
+                              for i in attrs if self.__dict__.get(i)}
+        else:
+            dict_to_return = self.__dict__
+
+        return dict(sorted(dict_to_return.items(), key=lambda x: len(x[0])))
+    
