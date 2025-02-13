@@ -29,6 +29,6 @@ class Student:
         """Convert Student instance to dictionary representation.
 
             Returns:
-                dict: Dictionary containing existing attributesd.
+                Dictionary containing existing attributesd.
         """
         return self.__dict__
