@@ -27,4 +27,4 @@ def read_file(filename=""):
        UnicodeDecodeError: If the file cannot be decoded using UTF-8 encoding
    """
     with open(filename, encoding="utf-8") as f:
-        print(f.read())
+        print(f.read(), end="")
