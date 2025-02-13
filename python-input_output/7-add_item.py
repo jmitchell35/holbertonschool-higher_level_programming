@@ -26,7 +26,7 @@ def add_item():
         - The file is created if it doesn't exist
     """
     filename = "add_item.json"
-    
+
     try:
         args = load_from_json_file(filename)
     except FileNotFoundError:
@@ -38,3 +38,4 @@ def add_item():
 
 if __name__ == "__main__":
     add_item()
+    

@@ -2,8 +2,8 @@
 """
 File Reader Module
 
-This module provides functionality for reading and displaying text file contents.
-Supports UTF-8 encoded files.
+This module provides functionality for reading and displaying text file
+contents. Supports UTF-8 encoded files.
 
 Functions:
    read_file: Reads and prints contents of a text file to stdout

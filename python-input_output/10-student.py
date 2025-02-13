@@ -24,23 +24,23 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
-       
+
     def to_json(self, attrs=None):
         """Convert Student instance to dictionary representation.
 
             Args:
-                attrs (list, optional): List of strings representing attribute names
-                to retrieve. If None, all attributes are retrieved.
+                attrs (list, optional): List of strings representing attribute
+                names to retrieve. If None, all attributes are retrieved.
 
             Returns:
-                dict: Dictionary containing selected instance attributes, sorted by
-                key length. Only existing attributes are included.
+                dict: Dictionary containing selected instance attributes,
+                sorted by key length. Only existing attributes are included.
         """
         if isinstance(attrs, list) and all((
-            isinstance(item, str) for item in attrs)):
-            dict_to_return = {i: self.__dict__.get(i) 
+                isinstance(item, str) for item in attrs)):
+            dict_to_return = {i: self.__dict__.get(i)
                               for i in attrs if self.__dict__.get(i)}
         else:
-           dict_to_return = self.__dict__
-    
+            dict_to_return = self.__dict__
+
         return dict(sorted(dict_to_return.items(), key=lambda x: len(x[0])))
