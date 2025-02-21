@@ -40,9 +40,4 @@ class SimpleServer(BaseHTTPRequestHandler):
         self.wfile.write(message.encode('utf-8'))
         
 httpd = HTTPServer(("", PORT), SimpleServer)
-print(f"Server started - listening on localhost:{PORT}")
-try:
-    httpd.serve_forever()
-except KeyboardInterrupt:
-    print("\nShutting down server...")
-    httpd.server_close()
+httpd.serve_forever()
