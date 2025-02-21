@@ -13,28 +13,28 @@ class SimpleServer(BaseHTTPRequestHandler):
                 "city": "New York"
             }
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-Type', 'application/json')
             message = json.dumps(data)
         elif self.path == "/status":
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-Type', 'text/html')
             message = "OK"
         elif self.path == "/info":
             self.send_response(200)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-Type', 'application/json')
             data = {
                 "version": "1.0",
-                "description": "A simple API built with HTTP server"
+                "description": "A simple API built with http.server"
             }
             message = json.dumps(data)
         elif self.path == "/":
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-Type', 'text/html')
             message = "Hello, this is a simple API!"
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'text/html')
-            message = "404 Not Found : The requested endpoint does not exist"
+            self.send_header('Content-Type', 'text/html')
+            message = "Endpoint not found"
         self.end_headers()
         self.wfile.write(message.encode())
         
