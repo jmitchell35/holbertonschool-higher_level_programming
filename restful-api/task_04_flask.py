@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from flask import Flask, jsonify, request
-import json
 from markupsafe import escape
 
 app = Flask(__name__)
@@ -21,10 +20,15 @@ def status():
 
 @app.route("/users/<string:username>")
 def username(username):
-    if users[escape(username)]:
-        return jsonify(users[escape(username)])
+    req_username = escape(username)
+    req_user = {"username" : req_username}
+    if req_username in users:
+        req_user.update(
+            {key: value for key, value in users[req_username].items()}
+            )
+        return jsonify(req_user)
     else:
-        return jsonify({"error": "Username is required"}), 404
+        return jsonify({"error": "User not found"}), 404
 
 @app.route("/add_user", methods=['POST'])
 def add_user():
@@ -36,7 +40,11 @@ def add_user():
             key: value for key, value in data.items() if key != "username"}}
     users.update(new_user)
 
-    return jsonify(users)
+    return jsonify({
+        "message": "User added",
+        "user": data
+        }
+    ), 201
 
 if __name__ == '__main__':
     app.run(debug=True)
