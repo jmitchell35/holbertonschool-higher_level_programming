@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -34,10 +34,6 @@ def verify_password(username, password):
         return username
     return None
 
-@app.route("/")
-def index():
-    return "Basic API index with no protection"
-
 # basic http protected route
 @app.route("/basic-protected")
 @auth.login_required
@@ -56,6 +52,7 @@ def login():
 
 # jwt-protected route
 @app.route("/jwt-protected")
+@jwt_required()
 def jwt_protected():
     return "JWT Auth: Access Granted"
 
