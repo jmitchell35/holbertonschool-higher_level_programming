@@ -2,8 +2,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
-PORT = 8000
-
 class SimpleServer(BaseHTTPRequestHandler):
     def do_GET(self):    
         if self.path == "/data":
@@ -39,5 +37,5 @@ class SimpleServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(message.encode('utf-8'))
         
-httpd = HTTPServer(("", PORT), SimpleServer)
+httpd = HTTPServer(("localhost", 8000), SimpleServer)
 httpd.serve_forever()
