@@ -35,7 +35,7 @@ def verify_password(username, password):
     return None
 
 # basic http protected route
-@app.route("/basic-protected")
+@app.route("/basic-protected", methods=["GET"])
 @auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
@@ -51,13 +51,13 @@ def login():
     return jsonify(access_token=access_token)
 
 # jwt-protected route
-@app.route("/jwt-protected")
+@app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
     return "JWT Auth: Access Granted"
 
 # role-based jwt-protected route
-@app.route("/admin-only")
+@app.route("/admin-only", methods=["GET"])
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
