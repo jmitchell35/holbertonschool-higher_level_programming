@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
@@ -48,8 +48,8 @@ def login():
     password = data.get('password')
     user = users.get(username)
     if user and check_password_hash(user['password'], password):
-        access_token = create_access_token(identity={'username': username,
-                                                     'role': user['role']})
+        # Store just the username as identity
+        access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token)
     return jsonify({"error": "Invalid credentials"}), 401
 
@@ -57,14 +57,17 @@ def login():
 @app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
-    return "JWT Auth: Access Granted"
+    current_user = get_jwt_identity()  # This will be just the username
+    return f"JWT Auth: Access Granted for {current_user}"
 
 
 @app.route("/admin-only", methods=["GET"])
 @jwt_required()
 def is_admin():
-    current_user = get_jwt_identity()
-    if current_user['role'] != 'admin':
+    current_user = get_jwt_identity()  # This will be just the username
+    user = users.get(current_user)     # Look up user info from users dict
+    
+    if not user or user['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
 
@@ -95,4 +98,4 @@ def handle_needs_fresh_token_error(header, payload):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
