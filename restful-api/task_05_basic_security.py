@@ -13,7 +13,7 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 # Adding basic JWT token auth
 app.config["JWT_SECRET_KEY"] = "supercalifragilistique-secret"
-jwt = JWTManager(app)  
+jwt = JWTManager(app)
 
 users = {
     "user1": {
@@ -34,6 +34,11 @@ def verify_password(username, password):
     if username in users and \
             check_password_hash(users[username]["password"], password):
         return username
+
+
+@app.route("/")
+def index():
+    return "Basic API index with no protection"
 
 # basic http protected route
 @app.route("/basic-protected")
@@ -66,7 +71,7 @@ def admin_only():
         return "Admin Access: Granted", 200
     else:
         return {"error": "Admin access required"}, 403
- 
+
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
