@@ -80,17 +80,17 @@ def handle_invalid_token_error(err):
 
 
 @jwt.expired_token_loader
-def handle_expired_token_error(err):
+def handle_expired_token_error(header, payload):
     return jsonify({"error": "Token has expired"}), 401
 
 
 @jwt.revoked_token_loader
-def handle_revoked_token_error(err):
+def handle_revoked_token_error(header, payload):
     return jsonify({"error": "Token has been revoked"}), 401
 
 
 @jwt.needs_fresh_token_loader
-def handle_needs_fresh_token_error(err):
+def handle_needs_fresh_token_error(header, payload):
     return jsonify({"error": "Fresh token required"}), 401
 
 
