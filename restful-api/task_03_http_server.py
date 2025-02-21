@@ -36,7 +36,7 @@ class SimpleServer(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             message = "404 Not Found : The requested endpoint does not exist"
         self.end_headers()
-        self.wfile.write(message.encode('utf-8'))
+        self.wfile.write(message.encode())
         
 httpd = HTTPServer(("localhost", PORT), SimpleServer)
 try:
