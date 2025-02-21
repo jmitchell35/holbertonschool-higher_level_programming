@@ -2,6 +2,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
+PORT = 8000
+
 class SimpleServer(BaseHTTPRequestHandler):
     def do_GET(self):    
         if self.path == "/data":
@@ -24,7 +26,6 @@ class SimpleServer(BaseHTTPRequestHandler):
                 "version": "1.0",
                 "description": "A simple API built with HTTP server"
             }
-            self.send_header('Content-type', 'application/json')
             message = json.dumps(data)
         elif self.path == "/":
             self.send_response(200)
@@ -37,5 +38,10 @@ class SimpleServer(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(message.encode('utf-8'))
         
-httpd = HTTPServer(("localhost", 8000), SimpleServer)
-httpd.serve_forever()
+httpd = HTTPServer(("localhost", PORT), SimpleServer)
+try:
+    print("Server starting on localhost:8000...")
+    httpd.serve_forever()
+except KeyboardInterrupt:
+    print("\nShutting down the server...")
+    httpd.server_close()
