@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -49,10 +49,8 @@ def basic_protected():
 def login():
     username = escape(request.json.get("username"))
     password = escape(request.json.get("password"))
-    if not username in users or \
-            not check_password_hash(users[username]["password"], password):
-        return jsonify({"msg": "Bad username or password"}), 401
-
+    if not verify_password(username, password):
+        return jsonify({"error": "Invalid credentials"}), 401
     access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token)
 
