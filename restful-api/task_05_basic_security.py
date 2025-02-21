@@ -3,10 +3,8 @@ from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from markupsafe import escape
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import jwt_required
-from flask_jwt_extended import JWTManager
+from flask_jwt_extended import (create_access_token, get_jwt_identity,
+                                jwt_required, JWTManager)
 
 app = Flask(__name__)
 # adding BasicAuth
@@ -35,7 +33,6 @@ def verify_password(username, password):
             check_password_hash(users[username]["password"], password):
         return username
     return None
-
 
 @app.route("/")
 def index():
@@ -68,7 +65,7 @@ def jwt_protected():
 @jwt_required()
 def admin_only():
     current_user = get_jwt_identity()
-    if users[current_user]["role"] == "admin":
+    if current_user["role"] == "admin":
         return "Admin Access: Granted", 200
     else:
         return {"error": "Admin access required"}, 403
