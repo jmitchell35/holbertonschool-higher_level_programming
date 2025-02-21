@@ -3,3 +3,6 @@
 
 # __pycache__ directories
 __pycache__/
+
+# venv directories
+*venv/
