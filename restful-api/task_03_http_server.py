@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-import http.server
-import socketserver
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 PORT = 8000
 
-class SimpleServer(http.server.BaseHTTPRequestHandler):
+class SimpleServer(BaseHTTPRequestHandler):
     def do_GET(self):    
         if self.path == "/data":
             data = {
@@ -18,7 +17,7 @@ class SimpleServer(http.server.BaseHTTPRequestHandler):
             message = json.dumps(data)
         elif self.path == "/status":
             self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header('Content-type', 'text/html')
             message = "OK"
         elif self.path == "/info":
             self.send_response(200)
@@ -31,16 +30,16 @@ class SimpleServer(http.server.BaseHTTPRequestHandler):
             message = json.dumps(data)
         elif self.path == "/":
             self.send_response(200)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header('Content-type', 'text/html')
             message = "Hello, this is a simple API!"
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'text/plain')
+            self.send_header('Content-type', 'text/html')
             message = "404 Not Found : The requested endpoint does not exist"
         self.end_headers()
         self.wfile.write(message.encode('utf-8'))
         
-httpd = http.server.HTTPServer(("", PORT), SimpleServer)
+httpd = HTTPServer(("", PORT), SimpleServer)
 print(f"Server started - listening on localhost:{PORT}")
 try:
     httpd.serve_forever()
