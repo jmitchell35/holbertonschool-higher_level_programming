@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+from flask import Flask, jsonify, request
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
+from markupsafe import escape
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
+from flask_jwt_extended import jwt_required
+from flask_jwt_extended import JWTManager
+
+app = Flask(__name__)
+# adding BasicAuth
+auth = HTTPBasicAuth()
+# Adding basic JWT token auth
+app.config["JWT_SECRET_KEY"] = "supercalifragilistique-secret"
+jwt = JWTManager(app)  
+
+users = {
+    "user1": {
+        "username": "user1",
+        "password": generate_password_hash("password"),
+        "role": "user"
+        },
+    "admin1": {
+        "username": "admin1",
+        "password": generate_password_hash("password"),
+        "role": "admin"
+        }
+}
+
+# pw check for basic http auth
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and \
+            check_password_hash(users[username]["password"], password):
+        return username
+
+# basic http protected route
+@app.route("/basic-protected")
+@auth.login_required
+def basic_protected():
+    return "Basic Auth: Access Granted"
+
+# jwt is returned in exchange for valid credentials
+@app.route("/login", methods=["POST"])
+def login():
+    username = request.json.get("username")
+    password = request.json.get("password")
+    if not verify_password(username, password):
+        return jsonify({"msg": "Bad username or password"}), 401
+
+    access_token = create_access_token(identity=username)
+    return jsonify(access_token=access_token)
+
+# jwt-protected route
+@app.route("/jwt-protected")
+def jwt_protected():
+    return "JWT Auth: Access Granted"
+
+# role-based jwt-protected route
+@app.route("/admin-only")
+@jwt_required()
+def admin_only():
+    current_user = get_jwt_identity()
+    if users[current_user]["role"] == "admin":
+        return "Admin Access: Granted", 200
+    else:
+        return {"error": "Admin access required"}, 403
+
+if __name__ == '__main__':
+    app.run(debug=True)
