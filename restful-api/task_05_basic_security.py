@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -65,9 +65,9 @@ def jwt_protected():
 def admin_only():
     current_user = get_jwt_identity()
     if current_user["role"] == "admin":
-        return "Admin Access: Granted", 200
+        return "Admin Access: Granted"
     else:
-        return {"error": "Admin access required"}, 403
+        return jsonify({"error": "Admin access required"}), 403
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
