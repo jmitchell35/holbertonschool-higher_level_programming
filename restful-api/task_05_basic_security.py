@@ -34,6 +34,7 @@ def verify_password(username, password):
     if username in users and \
             check_password_hash(users[username]["password"], password):
         return username
+    return None
 
 
 @app.route("/")
