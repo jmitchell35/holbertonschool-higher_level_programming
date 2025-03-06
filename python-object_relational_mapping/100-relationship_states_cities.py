@@ -7,20 +7,18 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    california = State(name="California")
+    new_state = State(name="California")
+    new_city = City(name="San Francisco")
+    new_state.cities.append(new_city)
 
-    san_francisco = City(name="San Francisco")
-    san_francisco.state = california
-
-    session.add(california)
-    session.add(san_francisco)
+    session.add(new_state)
     session.commit()
 
     session.close()
