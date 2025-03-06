@@ -36,14 +36,12 @@ if __name__ == "__main__":
     session = Session()
 
     # Create a new State "California" with City "San Francisco"
-    california = State(name="California")
-    san_francisco = City(name="San Francisco")
+    new_state = State(name="California")
+    new_city = City(name="San Francisco")
+    new_state.cities.append(new_city)
 
-    # Add the city to the state's cities collection
-    california.cities.append(san_francisco)
-
-    # Add the new state to the session and commit
-    session.add(california)
+    # Add the state to the session
+    session.add(new_state)
     session.commit()
 
     # Close the session
