@@ -31,7 +31,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the query to get states starting with uppercase 'N' ordered by id
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
+    cursor.execute(query, ('N%',))
 
     # Fetch all the results
     states = cursor.fetchall()
