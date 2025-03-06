@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains State class and Base instance"""
+"""Contains the class definition of a State and an instance Base"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship

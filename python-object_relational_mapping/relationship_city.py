@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains City class"""
+"""Contains the class definition of a City"""
 from sqlalchemy import Column, Integer, String, ForeignKey
 from relationship_state import Base
 
