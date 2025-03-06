@@ -1,4 +1,4 @@
--- Task 4
+-- Task 5
 -- Write a script that creates the table unique_id on your MySQL server.
 -- Details inside README file
 CREATE TABLE IF NOT EXISTS unique_id (
