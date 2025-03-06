@@ -37,11 +37,11 @@ if __name__ == "__main__":
 
     # Create a new State "California" with City "San Francisco"
     new_state = State(name="California")
-    new_city = City(name="San Francisco")
-    new_state.cities.append(new_city)
+    new_city = City(name="San Francisco", state=new_state)
 
-    # Add the state to the session
+    # Add both objects to the session
     session.add(new_state)
+    session.add(new_city)
     session.commit()
 
     # Close the session
