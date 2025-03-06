@@ -35,13 +35,15 @@ if __name__ == "__main__":
     # Create a Session instance
     session = Session()
 
-    # Create a new State "California" with City "San Francisco"
-    new_state = State(name="California")
-    new_city = City(name="San Francisco", state=new_state)
+    # Create a new State "California"
+    california = State(name="California")
 
-    # Add both objects to the session
-    session.add(new_state)
-    session.add(new_city)
+    # Create a new City "San Francisco" and add it to California's cities
+    san_francisco = City(name="San Francisco")
+    california.cities.append(san_francisco)
+
+    # Add California to the session (relationship => SF will be added)
+    session.add(california)
     session.commit()
 
     # Close the session
