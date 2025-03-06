@@ -23,8 +23,7 @@ if __name__ == "__main__":
 
     # Create engine that connects to the MySQL server
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(username, password, db_name),
-                           pool_pre_ping=True)
+                           .format(username, password, db_name))
 
     # Create all tables in the engine
     Base.metadata.create_all(engine)
@@ -35,14 +34,11 @@ if __name__ == "__main__":
     # Create a Session instance
     session = Session()
 
-    # Create a new State "California"
+    # Create a new State "California" and City "San Francisco"
     california = State(name="California")
+    california.cities = [City(name="San Francisco")]
 
-    # Create a new City "San Francisco" and add it to California's cities
-    san_francisco = City(name="San Francisco")
-    california.cities.append(san_francisco)
-
-    # Add California to the session (relationship => SF will be added)
+    # Add the state to the session
     session.add(california)
     session.commit()
 
