@@ -2,7 +2,8 @@
 """
 Script that displays all values in the states table of hbtn_0e_0_usa
 where name matches the provided argument.
-Takes 4 arguments: mysql username, mysql password, database name, and state name.
+Takes 4 arguments: mysql username, mysql password, database name, and state
+name.
 """
 import MySQLdb
 import sys
@@ -13,7 +14,8 @@ if __name__ == "__main__":
     Main function that will not execute when imported.
     Displays values in states table where name matches the given argument.
     """
-    # Get MySQL connection parameters and state name from command line arguments
+    # Get MySQL connection parameters and state name from command line
+    # arguments
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
@@ -31,8 +33,9 @@ if __name__ == "__main__":
     # Create a cursor object
     cursor = db.cursor()
 
-    # Execute the query to get states that match the provided state name
-    query = "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(state_name)
+    # Execute the query using format
+    query = ("SELECT * FROM states WHERE name LIKE BINARY '{}' "
+             "ORDER BY id ASC".format(state_name))
     cursor.execute(query)
 
     # Fetch all the results
