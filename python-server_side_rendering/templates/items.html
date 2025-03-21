@@ -6,11 +6,11 @@
    <body>
     {% include 'header.html' %}
 
-        {% if items|length == 0 %}
+        {% if items_list|length == 0 %}
         <p>No items found</p>
         {% else %}
         <ul>
-            {% for item in items %}
+            {% for item in items_list %}
                 <li>{{item}}</li>
             {% endfor %}
         </ul>
