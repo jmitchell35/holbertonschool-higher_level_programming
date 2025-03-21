@@ -6,16 +6,15 @@
    <body>
     {% include 'header.html' %}
 
-        <ul id="items_list">
         {% if data.items | length == 0 %}
-            <li>No items found</li>
+        No items found
         {% else %}
+        <ul id="items_list">
             {% for item in data.items %}
                 <li>{{item}}</li>
             {% endfor %}
-        {% endif %}
         </ul>
-
+        {% endif %}
     {% include 'footer.html' %}
    </body>
 </html>
