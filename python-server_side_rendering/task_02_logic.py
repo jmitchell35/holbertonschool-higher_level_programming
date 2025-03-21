@@ -21,7 +21,7 @@ def items():
         # load data for template
         with open('items.json', 'r') as f:
             data = json.load(f)
-        items_list = data.items
+        items_list = data['items']
     except FileExistsError:
         items_list = []
         
