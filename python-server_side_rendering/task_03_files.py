@@ -29,7 +29,7 @@ def items():
     return render_template('items.html', items_list=items_list)
 
 @app.route('/products')
-def items(source, id):
+def products(source, id):
     source = request.args.get('source')
     product_id = request.args.get('id')
     err_msg = None
