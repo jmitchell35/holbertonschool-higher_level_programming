@@ -26,7 +26,7 @@ def items():
         items_list = []
         
     # pass data to template
-    return render_template('items.html', list=items_list)
+    return render_template('items.html', items_list=items_list)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
