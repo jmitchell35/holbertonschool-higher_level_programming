@@ -9,12 +9,13 @@
         {% if data.items | length == 0 %}
         No items found
         {% else %}
-        <ul id="items_list">
+        <ul>
             {% for item in data.items %}
                 <li>{{item}}</li>
             {% endfor %}
         </ul>
         {% endif %}
+
     {% include 'footer.html' %}
    </body>
 </html>
