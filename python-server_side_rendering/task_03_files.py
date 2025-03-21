@@ -29,9 +29,9 @@ def items():
     return render_template('items.html', items_list=items_list)
 
 @app.route('/products')
-def products(source, id):
+def products():
     source = request.args.get('source')
-    product_id = request.args.get('id')
+    product_id = request.args.get('id', None)
     err_msg = None
     products_list = []
 
@@ -44,7 +44,7 @@ def products(source, id):
     else:
         err_msg = "Wrong source"
 
-    if id != None and products_list != []:
+    if product_id != None and products_list != []:
         products_list = [product for product in products_list\
             if str(product.get('id')) == str(product_id)]
         if products_list == []:
