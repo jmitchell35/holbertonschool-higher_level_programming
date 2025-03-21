@@ -7,7 +7,7 @@
     {% include 'header.html' %}
 
         {% if data.items | length == 0 %}
-        No items found
+        <p>No items found</p>
         {% else %}
         <ul id="items_list">
             {% for item in data.items %}
