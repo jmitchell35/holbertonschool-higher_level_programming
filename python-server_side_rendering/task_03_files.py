@@ -53,7 +53,7 @@ def items(source, id):
     if products_list == [] and err_msg == None:
             err_msg = "Product list is empty"
 
-    return render_template('products_display.html',
+    return render_template('product_display.html',
                            products_list=products_list,
                            err_msg=err_msg)
 
