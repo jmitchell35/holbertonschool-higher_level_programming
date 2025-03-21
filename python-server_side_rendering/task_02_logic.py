@@ -17,10 +17,14 @@ def contact():
 
 @app.route('/items')
 def items():
-    # load data for template
-    with open('items.json', 'r') as f:
-        data = json.load(f)
-    # pass data to template
+    try:
+        # load data for template
+        with open('items.json', 'r') as f:
+            data = json.load(f)
+        # pass data to template
+    except FileExistsError:
+        data = []
+
     return render_template('items.html', data=data)
 
 if __name__ == '__main__':
