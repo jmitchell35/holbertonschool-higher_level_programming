@@ -23,7 +23,7 @@ def items():
             data = json.load(f)
         # pass data to template
     except FileExistsError:
-        data = []
+        data = {"items": []}
 
     return render_template('items.html', data=data)
 
